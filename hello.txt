@@ -9,3 +9,6 @@ bat 'rename old.txt new.txt'            # rename file
 bat 'del file.txt'                      # delete file
 bat 'echo text >> file.txt'             # append to file
 bat 'find /c /v "" < file.txt'          # count lines
+bat 'date /t'                           # print date
+bat 'type output.txt'                 
+bat 'type user.txt'
