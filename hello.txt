@@ -1,1 +1,11 @@
 hello world
+bat 'echo Hello'                        # print message
+bat 'echo text > file.txt'              # create file
+bat 'type file.txt'                     # read file
+bat 'dir'                               # list files
+bat 'mkdir build'                       # create folder
+bat 'copy *.txt build'                  # copy files
+bat 'rename old.txt new.txt'            # rename file
+bat 'del file.txt'                      # delete file
+bat 'echo text >> file.txt'             # append to file
+bat 'find /c /v "" < file.txt'          # count lines
