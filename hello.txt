@@ -12,3 +12,5 @@ bat 'find /c /v "" < file.txt'          # count lines
 bat 'date /t'                           # print date
 bat 'type output.txt'                 
 bat 'type user.txt'
+bat "echo ${params.USERNAME} > user.txt"
+bat 'type user.txt'
