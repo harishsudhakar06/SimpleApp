@@ -14,3 +14,4 @@ bat 'type output.txt'
 bat 'type user.txt'
 bat "echo ${params.USERNAME} > user.txt"
 bat 'type user.txt'
+bat 'copy *.* build'                    #copy files
