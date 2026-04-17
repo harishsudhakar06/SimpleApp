@@ -110,3 +110,44 @@ Include ALL of the following clearly:
    VS Code → GitHub → Jenkins → Maven → Docker → Kubernetes
 
 Give answer in clean steps with commands + code ready to execute.
+
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "food-app"
+    }
+
+    stages {
+
+        stage('Clone Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/harishsudhakar06/food-delivery-cicd.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean package'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                bat 'docker build -t %IMAGE_NAME% .'
+            }
+        }
+
+        stage('Kubernetes Deploy') {
+            steps {
+                echo 'Build and Docker completed successfully'
+            }
+        }
+    }
+}
