@@ -15,29 +15,98 @@ bat 'type user.txt'
 bat "echo ${params.USERNAME} > user.txt"
 bat 'type user.txt'
 bat 'copy *.* build'                    #copy files
-You are a DevOps and Java expert. Solve the following FAT assessment question step by step with COMPLETE working solution.
+You are a DevOps expert. Solve the given question step-by-step and give complete working solution.
 
-Requirements:
-1. Give manual folder creation commands (Windows CMD).
-2. Clearly mention WHERE each file should be created (folder path).
-3. Provide commands to create each file (notepad commands).
-4. Provide full working Spring Boot code (App.java, Controller, pom.xml).
-5. Include JUnit test cases for success and failure scenarios.
-6. Show GitHub steps:
-   - Suggest repository name
-   - Commands to push to main branch
-7. Provide correct Jenkins pipeline script:
-   - Must use main branch
-   - Include Build, Test, Docker, Deploy stages
-   - Explain Jenkins setup from job creation to build success
-8. Provide Docker setup:
-   - Dockerfile + commands
-9. Provide Kubernetes setup:
-   - deployment.yaml + service.yaml + commands
-10. If UI required, provide simple HTML
-11. Explain integration flow (VS Code → GitHub → Jenkins → Docker → Kubernetes)
+Include ALL of the following clearly:
 
-Keep everything SIMPLE, CLEAR, and COPY-PASTE friendly.
+1. Manual Project Setup (Windows Commands)
 
-Now solve this question:
-[PASTE QUESTION]
+* Create folder and full Spring Boot structure:
+  mkdir project-name
+  cd project-name
+  mkdir src\main\java\com\example\app
+  mkdir src\main\resources
+  mkdir src\test\java\com\example\app
+* Tell exactly where to create:
+
+  * pom.xml → root folder
+  * App.java → src/main/java/com/example/app
+  * Controller.java → same package
+  * application.properties → src/main/resources
+
+2. Full Code
+
+* Provide complete working code for:
+
+  * pom.xml (Spring Boot + plugins + jar packaging)
+  * Main class with @SpringBootApplication
+  * REST Controller
+  * JUnit Test case
+
+3. GitHub Setup
+
+* Suggest a proper repository name
+* Provide commands:
+  git init
+  git add .
+  git commit -m "initial commit"
+  git branch -M main
+  git remote add origin <repo-url>
+  git push -u origin main
+
+4. Jenkins Pipeline (main branch)
+
+* Provide FULL working Jenkinsfile:
+
+  * Clone from GitHub (main branch)
+  * Build using Maven
+  * Run tests
+  * Docker build
+  * Docker push (if required using PAT)
+* Include credentials usage if needed
+
+5. Docker Setup
+
+* Provide Dockerfile
+
+* Commands:
+  docker build -t app-name .
+  docker run -p 9090:9090 app-name
+
+* If pushing to Docker Hub:
+  Explain using PAT:
+
+  * docker login using username + PAT
+  * docker tag app-name username/app-name
+  * docker push username/app-name
+
+* Jenkins Docker Push Stage:
+  withCredentials([usernamePassword(credentialsId: 'docker-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+  bat 'docker login -u %USER% -p %PASS%'
+  bat 'docker tag app-name %USER%/app-name'
+  bat 'docker push %USER%/app-name'
+  }
+
+6. Kubernetes Setup
+
+* Provide deployment.yaml and service.yaml
+* Use correct image name
+* If using local Docker Desktop:
+  imagePullPolicy: Never
+* Commands:
+  kubectl apply -f deployment.yaml
+  kubectl apply -f service.yaml
+  kubectl get pods
+  kubectl get services
+
+7. Error Handling (must include)
+
+* Port already in use → change port or kill process
+* Docker daemon not running → start Docker Desktop
+* Kubernetes auth issue → explain kubeconfig / Jenkins limitation
+* GitHub error → check branch and push code
+
+8. Final Flow (for exam writing)
+   VS Code → GitHub → Jenkins → Maven → Docker → Kubernetes
+
+Give answer in clean steps with commands + code ready to execute.
