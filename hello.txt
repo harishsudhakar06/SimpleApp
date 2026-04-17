@@ -15,3 +15,29 @@ bat 'type user.txt'
 bat "echo ${params.USERNAME} > user.txt"
 bat 'type user.txt'
 bat 'copy *.* build'                    #copy files
+You are a DevOps and Java expert. Solve the following FAT assessment question step by step with COMPLETE working solution.
+
+Requirements:
+1. Give manual folder creation commands (Windows CMD).
+2. Clearly mention WHERE each file should be created (folder path).
+3. Provide commands to create each file (notepad commands).
+4. Provide full working Spring Boot code (App.java, Controller, pom.xml).
+5. Include JUnit test cases for success and failure scenarios.
+6. Show GitHub steps:
+   - Suggest repository name
+   - Commands to push to main branch
+7. Provide correct Jenkins pipeline script:
+   - Must use main branch
+   - Include Build, Test, Docker, Deploy stages
+   - Explain Jenkins setup from job creation to build success
+8. Provide Docker setup:
+   - Dockerfile + commands
+9. Provide Kubernetes setup:
+   - deployment.yaml + service.yaml + commands
+10. If UI required, provide simple HTML
+11. Explain integration flow (VS Code → GitHub → Jenkins → Docker → Kubernetes)
+
+Keep everything SIMPLE, CLEAR, and COPY-PASTE friendly.
+
+Now solve this question:
+[PASTE QUESTION]
